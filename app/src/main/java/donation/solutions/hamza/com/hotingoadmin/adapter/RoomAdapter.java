@@ -10,36 +10,36 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import donation.solutions.hamza.com.hotingoadmin.R;
-import donation.solutions.hamza.com.hotingoadmin.model.RoomOrderModel;
+import donation.solutions.hamza.com.hotingoadmin.model.RoomModel;
 
 
-public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.VH> {
+public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.VH> {
 
     private int rowLayout;
     private Context context;
-    private onBookClickListner onBookClickListner;
-    private ArrayList<RoomOrderModel> roomOrders;
+    private onRoomClickListener onBookClickListner;
+    private ArrayList<RoomModel> rooms;
 
 
     public static class VH extends RecyclerView.ViewHolder {
-        TextView customerNameTV;
+        TextView roomNameTV;
         TextView roomNumberTV;
 
         public VH(View v) {
             super(v);
 
-            customerNameTV = v.findViewById(R.id.bookingCustomerNameTV);
-            roomNumberTV = v.findViewById(R.id.bookingCustomerRoomTV);
+            roomNameTV = v.findViewById(R.id.roomNameTV);
+            roomNumberTV = v.findViewById(R.id.roomNumberTV);
 
         }
     }
 
-    public BookingAdapter(int rowLayout, Context context, ArrayList<RoomOrderModel> roomsOrders, onBookClickListner listner) {
+    public RoomAdapter(int rowLayout, Context context, ArrayList<RoomModel> roomModels, onRoomClickListener listner) {
 
         this.rowLayout = rowLayout;
         this.context = context;
         this.onBookClickListner = listner;
-        this.roomOrders = roomsOrders;
+        this.rooms = roomModels;
 
     }
 
@@ -55,20 +55,20 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.VH> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBookClickListner.onBookClickListner(roomOrders.get(position));
+                onBookClickListner.onRoomClick(rooms.get(position));
             }
         });
-        holder.customerNameTV.setText(roomOrders.get(position).getUserRoomorder().getName().toString());
-        holder.roomNumberTV.setText(roomOrders.get(position).getRoom().getNumber().toString());
+        holder.roomNameTV.setText(rooms.get(position).getDesc().toString());
+        holder.roomNumberTV.setText(rooms.get(position).getNumber().toString());
     }
 
     @Override
     public int getItemCount() {
-        return roomOrders.size();
+        return rooms.size();
     }
 
-    public interface onBookClickListner {
-        void onBookClickListner(RoomOrderModel roomOrderModel);
+    public interface onRoomClickListener {
+        void onRoomClick(RoomModel room);
 
     }
 }
