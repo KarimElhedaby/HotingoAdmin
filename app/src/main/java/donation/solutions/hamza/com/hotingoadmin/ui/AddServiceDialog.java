@@ -31,7 +31,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import donation.solutions.hamza.com.hotingoadmin.R;
 import donation.solutions.hamza.com.hotingoadmin.adapter.RoomImagesAdapter;
-import donation.solutions.hamza.com.hotingoadmin.model.AddRoomResponse;
+import donation.solutions.hamza.com.hotingoadmin.model.AddServiceResponse;
 import donation.solutions.hamza.com.hotingoadmin.service.ApiClient;
 import donation.solutions.hamza.com.hotingoadmin.service.ApiEndpointInterface;
 import donation.solutions.hamza.com.hotingoadmin.service.AuthInterceptor;
@@ -44,7 +44,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddRoomDialog extends DialogFragment {
+public class AddServiceDialog extends DialogFragment {
     //get access to Storage permsion
     final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
     View view;
@@ -59,16 +59,14 @@ public class AddRoomDialog extends DialogFragment {
     Button doneBTN;
     @BindView(R.id.donateprojectRV)
     RecyclerView donateProjectRV;
-    String requestTitle, requestDesc, requestPrice;
-    @BindView(R.id.roomPriceET)
-    EditText roomPriceET;
+    String requestTitle, requestDesc;
     private RoomImagesAdapter roomImagesAdapter;
     private ArrayList<MultipartBody.Part> imagessParts;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.add_room_dialog, container, false);
+        view = inflater.inflate(R.layout.add_service_dialog, container, false);
         ButterKnife.bind(this, view);
 
         imagessParts = new ArrayList<MultipartBody.Part>();
@@ -87,7 +85,7 @@ public class AddRoomDialog extends DialogFragment {
                 Utilities.showLoadingDialog(getContext(), R.color.colorAccent);
                 requestTitle = projectTitleET.getText().toString();
                 requestDesc = projectDescET.getText().toString();
-                requestPrice = roomPriceET.getText().toString();
+
 
                 if (projectTitleET.getText().toString().equals("")) {
                     Toast.makeText(getContext(), "Please enter Room Number", Toast.LENGTH_SHORT).show();
@@ -95,8 +93,6 @@ public class AddRoomDialog extends DialogFragment {
                     Toast.makeText(getContext(), "Please enter Room descreption", Toast.LENGTH_SHORT).show();
                 } else if (imagesFiles.size() == 0) {
                     Toast.makeText(getContext(), "Please select Room images", Toast.LENGTH_SHORT).show();
-                } else if (roomPriceET.getText().toString().equals("")) {
-                    Toast.makeText(getContext(), "Please Enter Room price", Toast.LENGTH_SHORT).show();
                 } else {
                     sendReq();
                 }
@@ -122,10 +118,11 @@ public class AddRoomDialog extends DialogFragment {
     public void OpenImagePicker() {
 
         TedBottomPicker bottomSheetDialogFragment = new TedBottomPicker.Builder(getContext())
-                .setOnMultiImageSelectedListener(new TedBottomPicker.OnMultiImageSelectedListener() {
+                .setOnImageSelectedListener(new TedBottomPicker.OnImageSelectedListener() {
                     @Override
-                    public void onImagesSelected(ArrayList<Uri> uriList) {
-                        // here is selected uri list
+                    public void onImageSelected(Uri uri) {
+                        ArrayList<Uri> uriList = new ArrayList<>();
+                        uriList.add(uri);
 
                         projectIV.setVisibility(View.GONE);
                         donateProjectRV.setVisibility(View.VISIBLE);
@@ -137,13 +134,18 @@ public class AddRoomDialog extends DialogFragment {
                         donateProjectRV.setAdapter(roomImagesAdapter);
 
 
-                        for (Uri uri : uriList) {
-                            String imagePath = getPath(getContext(), uri);
+                        for (Uri urii : uriList) {
+                            String imagePath = getPath(getContext(), urii);
                             File imageFile = new File(imagePath);
                             imagesFiles.add(imageFile);
                         }
                         convertImageFileToMultiPart(imagesFiles, imagessParts);
                     }
+
+
+                    // here is selected uri list
+
+
                 })
                 .setPeekHeight(1600)
                 .showTitle(false)
@@ -161,7 +163,7 @@ public class AddRoomDialog extends DialogFragment {
             //Toast.makeText(getContext(), "file : " + file.getName().toString(), Toast.LENGTH_SHORT).show();
             RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"), file);
 
-            MultipartBody.Part filePart = MultipartBody.Part.createFormData("imgs", file.getName(), requestBody);
+            MultipartBody.Part filePart = MultipartBody.Part.createFormData("img", file.getName(), requestBody);
             imagesParts.add(filePart);
 
         }
@@ -174,29 +176,28 @@ public class AddRoomDialog extends DialogFragment {
                 ApiClient.getClient(new AuthInterceptor(null)).create(ApiEndpointInterface.class);
 
 
-        Call<AddRoomResponse> call = apiService.addRoom
+        Call<AddServiceResponse> call = apiService.addService
                 (
                         RequestBody.create(MediaType.parse("text/plain"), requestTitle),
-                        RequestBody.create(MediaType.parse("text/plain"), requestPrice),
                         RequestBody.create(MediaType.parse("text/plain"), requestDesc),
                         imagessParts
                 );
 
-        call.enqueue(new Callback<AddRoomResponse>() {
+        call.enqueue(new Callback<AddServiceResponse>() {
 
             @Override
-            public void onResponse(Call<AddRoomResponse> call, Response<AddRoomResponse> response) {
+            public void onResponse(Call<AddServiceResponse> call, Response<AddServiceResponse> response) {
                 Utilities.dismissLoadingDialog();
                 if (response.isSuccessful()) {
-                    Toast.makeText(getContext(), "Successfully Added your Room ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Successfully Added Service", Toast.LENGTH_SHORT).show();
                     dismiss();
                 }
 
             }
 
             @Override
-            public void onFailure(Call<AddRoomResponse> call, Throwable t) {
-                Toast.makeText(getContext(), "Some thing wronge try again..", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<AddServiceResponse> call, Throwable t) {
+                Toast.makeText(getContext(), "Some thing  Wronge try again..", Toast.LENGTH_SHORT).show();
                 dismiss();
             }
         });

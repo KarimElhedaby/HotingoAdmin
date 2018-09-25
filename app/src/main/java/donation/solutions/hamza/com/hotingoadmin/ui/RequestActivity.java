@@ -2,6 +2,8 @@ package donation.solutions.hamza.com.hotingoadmin.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import donation.solutions.hamza.com.hotingoadmin.R;
 import donation.solutions.hamza.com.hotingoadmin.adapter.RequestAdapter;
 import donation.solutions.hamza.com.hotingoadmin.model.ServiceOrderModel;
@@ -27,6 +30,8 @@ public class RequestActivity extends AppCompatActivity {
     RecyclerView requestsRV;
 
     RequestAdapter requestAdapter;
+    @BindView(R.id.addServiceFAB)
+    FloatingActionButton addServiceFAB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +64,8 @@ public class RequestActivity extends AppCompatActivity {
                         public void onRequestClickListner(ServiceOrderModel serviceOrderModel) {
 
 
-                            Intent i = new Intent(getApplicationContext(),RequestDeatails.class);
-                            i.putExtra("SERVICE_ORDER_DETAILS",serviceOrderModel);
+                            Intent i = new Intent(getApplicationContext(), RequestDeatails.class);
+                            i.putExtra("SERVICE_ORDER_DETAILS", serviceOrderModel);
                             startActivity(i);
 
                         }
@@ -80,5 +85,11 @@ public class RequestActivity extends AppCompatActivity {
     }
 
 
+    @OnClick(R.id.addServiceFAB)
+    public void onViewClicked() {
+        FragmentManager fm = getSupportFragmentManager();
+        AddServiceDialog serviceDialog = new AddServiceDialog();
+        serviceDialog.show(fm, "Show fragment");
+    }
 }
 

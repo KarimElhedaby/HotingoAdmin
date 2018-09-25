@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import donation.solutions.hamza.com.hotingoadmin.model.AddRoomResponse;
+import donation.solutions.hamza.com.hotingoadmin.model.AddServiceResponse;
 import donation.solutions.hamza.com.hotingoadmin.model.RoomModel;
 import donation.solutions.hamza.com.hotingoadmin.model.RoomOrderModel;
 import donation.solutions.hamza.com.hotingoadmin.model.ServiceOrderModel;
@@ -50,6 +51,14 @@ public interface ApiEndpointInterface {
             @Part("number") RequestBody number,
             @Part("price") RequestBody price,
             @Part("desc") RequestBody desc,
+            @Part List<MultipartBody.Part> img);
+
+
+    @Multipart
+    @POST("service")
+    Call<AddServiceResponse> addService(
+            @Part("desc") RequestBody desc,
+            @Part("name") RequestBody name,
             @Part List<MultipartBody.Part> img);
 
 
