@@ -20,7 +20,6 @@ import donation.solutions.hamza.com.hotingoadmin.utils.Utilities;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import timber.log.Timber;
 
 public class BookingActivity extends AppCompatActivity {
 
@@ -52,9 +51,6 @@ public class BookingActivity extends AppCompatActivity {
                 Utilities.dismissLoadingDialog();
                 if (response.isSuccessful()) {
 
-                    Timber.d(response.body().toString());
-                    Timber.d(String.valueOf(response.body().size()));
-
                     bookingAdapter = new BookingAdapter(R.layout.booking_item, getApplicationContext(), response.body(), new BookingAdapter.onBookClickListner() {
                         @Override
                         public void onBookClickListner(RoomOrderModel roomOrderModel) {
@@ -76,7 +72,6 @@ public class BookingActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArrayList<RoomOrderModel>> call, Throwable t) {
-                Timber.d(t.getMessage().toString());
                 Utilities.dismissLoadingDialog();
             }
         });
