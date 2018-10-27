@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import donation.solutions.hamza.com.hotingoadmin.R;
 import donation.solutions.hamza.com.hotingoadmin.adapter.ServicesAdapter;
 import donation.solutions.hamza.com.hotingoadmin.model.ServicesResponce;
@@ -33,6 +34,8 @@ public class ServicesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
+
+        ButterKnife.bind(this);
 
         servicesRecycler.setLayoutManager
                 (new LinearLayoutManager(this
