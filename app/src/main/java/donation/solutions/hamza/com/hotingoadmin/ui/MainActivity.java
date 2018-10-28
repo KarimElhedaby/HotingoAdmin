@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.roomsCV)
     CardView rooms ;
 
+    @BindView(R.id.servicesCV)
+    CardView services ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.bookingCV)
     void openbooking() {
         startActivity(new Intent(MainActivity.this, BookingActivity.class));
+
+    }
+
+    @OnClick(R.id.servicesCV)
+    void openServices() {
+        startActivity(new Intent(MainActivity.this, ServicesActivity.class));
 
     }
 

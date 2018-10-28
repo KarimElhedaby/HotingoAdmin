@@ -2,13 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="donation.solutions.hamza.com.hotingoadmin">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -29,7 +27,8 @@
         <activity android:name=".ui.RoomDetails" />
         <activity android:name=".ui.RequestActivity" />
         <activity android:name=".ui.RequestDeatails" />
-        <activity android:name=".ui.RoomsActivity"></activity>
+        <activity android:name=".ui.RoomsActivity" />
+        <activity android:name=".ui.ServicesActivity"></activity>
     </application>
 
 </manifest>

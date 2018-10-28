@@ -8,6 +8,7 @@ import donation.solutions.hamza.com.hotingoadmin.model.AddServiceResponse;
 import donation.solutions.hamza.com.hotingoadmin.model.RoomModel;
 import donation.solutions.hamza.com.hotingoadmin.model.RoomOrderModel;
 import donation.solutions.hamza.com.hotingoadmin.model.ServiceOrderModel;
+import donation.solutions.hamza.com.hotingoadmin.model.ServicesResponce;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -60,6 +61,9 @@ public interface ApiEndpointInterface {
             @Part("desc") RequestBody desc,
             @Part("name") RequestBody name,
             @Part List<MultipartBody.Part> img);
+
+    @GET("service")
+    Call<ArrayList<ServicesResponce>> getServices();
 
 
 }
