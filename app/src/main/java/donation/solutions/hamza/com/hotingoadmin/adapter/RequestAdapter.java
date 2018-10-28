@@ -58,10 +58,10 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.VH> {
                 onRequestClickListner.onRequestClickListner(serviceOrders.get(position));
             }
         });
-
-        holder.bookingRequestTV.setText(serviceOrders.get(position).getService().getName().toString());
-        holder.requestCustomerNameTV.setText(serviceOrders.get(position).getUserServicesOrded().getName().toString());
-
+        if (!serviceOrders.isEmpty()) {
+            holder.bookingRequestTV.setText(serviceOrders.get(position).getService().getName().toString());
+            holder.requestCustomerNameTV.setText(serviceOrders.get(position).getUserServicesOrded().getName().toString());
+        }
     }
 
     @Override

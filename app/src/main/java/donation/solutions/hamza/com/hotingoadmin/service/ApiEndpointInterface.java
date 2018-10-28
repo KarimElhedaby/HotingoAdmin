@@ -15,6 +15,8 @@ import donation.solutions.hamza.com.hotingoadmin.model.UserResponce;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
@@ -77,6 +79,35 @@ public interface ApiEndpointInterface {
 
     @GET("unseen")
     Call<Integer> getNotificationCount();
+
+    @GET("service")
+    Call<ArrayList<ServicesResponce>> deleteRoom(@Path("id") String id);
+
+    @FormUrlEncoded
+    @PUT("service/{id}")
+    Call<ServicesResponce> updateService(
+            @Path("id") String id , @Field("desc") String desc , @Field("name")String name);
+
+
+    @FormUrlEncoded
+    @PUT("service/{id}")
+    Call<Void> deleteService(
+            @Path("id") String id , @Field("avaliable") String avaliable );
+
+
+    @FormUrlEncoded
+    @PUT("room/{id}")
+    Call<RoomModel> updateRoom(
+            @Path("id") String id , @Field("number") String number , @Field("price")int price
+            , @Field("desc") String desc
+    );
+
+
+    @FormUrlEncoded
+    @PUT("room/{id}")
+    Call<Void> deleteRoom(
+            @Path("id") String id , @Field("avaliable") String avaliable );
+
 
 
 }

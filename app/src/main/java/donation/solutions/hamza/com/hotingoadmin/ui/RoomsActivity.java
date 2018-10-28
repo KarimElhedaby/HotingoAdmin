@@ -22,6 +22,7 @@ import donation.solutions.hamza.com.hotingoadmin.utils.Utilities;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import timber.log.Timber;
 
 public class RoomsActivity extends AppCompatActivity {
 
@@ -64,10 +65,50 @@ public class RoomsActivity extends AppCompatActivity {
                             // go to room details here..
 
                         }
+
+                        @Override
+                        public void editRoom(RoomModel room) {
+                            android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+                            UpdateRoom updateRoom = new UpdateRoom();
+
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("id", room);
+                            updateRoom.setArguments(bundle);
+                            updateRoom.show(fm, "Show fragment");
+
+                        }
+
+                        @Override
+                        public void deleteRoom(RoomModel room) {
+
+                            Utilities.showLoadingDialog(RoomsActivity.this, R.color.colorAccent);
+
+                            ApiEndpointInterface apiService =
+                                    ApiClient.getClient(new AuthInterceptor(null)).create(ApiEndpointInterface.class);
+
+
+                            Call<Void> call = apiService.deleteRoom(room.getId(), "false");
+
+                            call.enqueue(new Callback<Void>() {
+                                @Override
+                                public void onResponse(Call<Void> call, Response<Void> response) {
+                                    Utilities.dismissLoadingDialog();
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<Void> call, Throwable t) {
+                                    Utilities.dismissLoadingDialog();
+                                }
+
+                            });
+
+
+                        }
+
                     });
 
                     roomsRV.setAdapter(roomAdapter);
-
                 }
             }
 

@@ -1,14 +1,20 @@
 package donation.solutions.hamza.com.hotingoadmin.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
 import java.util.List;
 
 @SuppressWarnings("all")
-public class RoomModel {
+
+
+public class RoomModel implements Serializable{
+
     private final List<String> imgs;
 
     private final String creationDate;
 
-    private final String id;
+    private final String _id;
 
     private final String number;
 
@@ -22,7 +28,7 @@ public class RoomModel {
                      String desc, int v) {
         this.imgs = imgs;
         this.creationDate = creationDate;
-        this.id = id;
+        this._id = id;
         this.number = number;
         this.price = price;
         this.desc = desc;
@@ -38,7 +44,7 @@ public class RoomModel {
     }
 
     public String getId() {
-        return id;
+        return _id;
     }
 
     public String getNumber() {

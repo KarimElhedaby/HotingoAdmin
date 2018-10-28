@@ -1,6 +1,8 @@
 package donation.solutions.hamza.com.hotingoadmin.model;
 
-public class ServicesResponce {
+import java.io.Serializable;
+
+public class ServicesResponce implements Serializable {
 
     private final String img;
 
