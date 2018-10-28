@@ -18,7 +18,7 @@ public class ServiceOrderModel implements Serializable {
 
     private final int roomNo;
 
-    private final UserServicesOrded userServicesOrded;
+    private final UserServicesOrded user;
 
     private final Service service;
 
@@ -31,7 +31,7 @@ public class ServiceOrderModel implements Serializable {
         this.id = id;
         this.note = note;
         this.roomNo = roomNo;
-        this.userServicesOrded = userServicesOrded;
+        this.user = userServicesOrded;
         this.service = service;
         this.v = v;
     }
@@ -57,7 +57,7 @@ public class ServiceOrderModel implements Serializable {
     }
 
     public UserServicesOrded getUserServicesOrded() {
-        return userServicesOrded;
+        return user;
     }
 
     public Service getService() {

@@ -28,7 +28,9 @@
         <activity android:name=".ui.RequestActivity" />
         <activity android:name=".ui.RequestDeatails" />
         <activity android:name=".ui.RoomsActivity" />
-        <activity android:name=".ui.ServicesActivity"></activity>
+        <activity android:name=".ui.ServicesActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.NotificationActivity"></activity>
     </application>
 
 </manifest>

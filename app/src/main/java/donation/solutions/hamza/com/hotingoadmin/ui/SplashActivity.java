@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import donation.solutions.hamza.com.hotingoadmin.R;
+import donation.solutions.hamza.com.hotingoadmin.utils.MyApplication;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -17,8 +18,14 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
 
+                if (MyApplication.getPrefManager(getApplicationContext()).getUser() == null) {
+                    Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    startActivity(intent);
+
+                } else {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
+                }
 
 
                 finish();

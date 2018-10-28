@@ -5,13 +5,17 @@ import java.util.List;
 
 import donation.solutions.hamza.com.hotingoadmin.model.AddRoomResponse;
 import donation.solutions.hamza.com.hotingoadmin.model.AddServiceResponse;
+import donation.solutions.hamza.com.hotingoadmin.model.NotificationModel;
 import donation.solutions.hamza.com.hotingoadmin.model.RoomModel;
 import donation.solutions.hamza.com.hotingoadmin.model.RoomOrderModel;
 import donation.solutions.hamza.com.hotingoadmin.model.ServiceOrderModel;
 import donation.solutions.hamza.com.hotingoadmin.model.ServicesResponce;
+import donation.solutions.hamza.com.hotingoadmin.model.User;
+import donation.solutions.hamza.com.hotingoadmin.model.UserResponce;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -64,6 +68,15 @@ public interface ApiEndpointInterface {
 
     @GET("service")
     Call<ArrayList<ServicesResponce>> getServices();
+
+    @POST("login")
+    Call<UserResponce> signIn(@Body User user);
+
+    @GET("notification")
+    Call<ArrayList<NotificationModel>> getNotification();
+
+    @GET("unseen")
+    Call<Integer> getNotificationCount();
 
 
 }

@@ -15,5 +15,6 @@
     <string name="internal_storage">Internal Storage</string>
 
     <string name="default_notification_channel_id" translatable="false">donation.solutions.hamza.com.donation.service.firebase</string>
+    <string name="error_mail">Email or password error</string>
 
 </resources>
