@@ -1,9 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:visibility="visible">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/logoutBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_logout"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hotingo Admin"
+                android:layout_centerInParent="true"
+                android:textSize="24sp"
+                android:textColor="@color/white"/>
+
+            <GridLayout
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="2">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/notification"
+                        android:layout_width="40dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/notification"/>
+                    <TextView
+                        android:id="@+id/notificationCount"
+                        android:layout_width="20dp"
+                        android:gravity="center"
+                        android:layout_marginLeft="4dp"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:visibility="gone"
+                        android:background="@drawable/notification_round"
+                        android:layout_gravity="top|end"/>
+                </FrameLayout>
+            </GridLayout>
+
+
+
+
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
 
 
     <android.support.v7.widget.CardView
@@ -110,6 +179,7 @@
                 android:textStyle="bold" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
+
     <android.support.v7.widget.CardView
         android:id="@+id/servicesCV"
         android:layout_width="match_parent"

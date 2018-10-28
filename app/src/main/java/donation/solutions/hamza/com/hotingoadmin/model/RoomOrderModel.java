@@ -22,7 +22,7 @@ public class RoomOrderModel implements Serializable {
 
     String duration;
 
-    UserRoomorder userRoomorder;
+    UserRoomorder user;
 
     Room room;
 
@@ -35,7 +35,7 @@ public class RoomOrderModel implements Serializable {
         this.id = id;
         this.phone = phone;
         this.duration = duration;
-        this.userRoomorder = userRoomorder;
+        this.user = userRoomorder;
         this.room = room;
         this.v = v;
         this.notes = notes;
@@ -65,7 +65,7 @@ public class RoomOrderModel implements Serializable {
     }
 
     public UserRoomorder getUserRoomorder() {
-        return userRoomorder;
+        return user;
     }
 
     public Room getRoom() {
