@@ -4,6 +4,8 @@ import com.androidnetworking.interceptors.HttpLoggingInterceptor;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -24,6 +26,9 @@ public class ApiClient {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         clientBuilder = new OkHttpClient.Builder()
+//                .connectTimeout(1, TimeUnit.MINUTES)
+//                .readTimeout(1, TimeUnit.SECONDS)
+//                .writeTimeout(1, TimeUnit.SECONDS)
                 .addInterceptor(interceptor);
 
 
