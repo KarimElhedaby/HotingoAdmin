@@ -78,5 +78,15 @@ public interface ApiEndpointInterface {
     @GET("unseen")
     Call<Integer> getNotificationCount();
 
+    @PUT("profile/{adminId}")
+    Call<User> editAdminProfile(@Path("adminId") String adminId,
+                                @Body User editedAdmin);
+
+    @POST("admin/new-admin")
+    Call<User> addNewAdmin(@Body User newAdmin);
+
+    @GET("profile")
+    Call<User> getProfile();
+
 
 }

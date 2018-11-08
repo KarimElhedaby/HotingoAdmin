@@ -2,12 +2,12 @@ package donation.solutions.hamza.com.hotingoadmin.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.logoutBTN)
     ImageView logoutBTN;
+    @BindView(R.id.settingsFAB)
+    FloatingActionButton settingsFAB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,4 +123,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @OnClick(R.id.settingsFAB)
+    public void onViewClicked() {
+        startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+    }
 }
