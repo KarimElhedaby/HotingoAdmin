@@ -22,7 +22,6 @@ import donation.solutions.hamza.com.hotingoadmin.utils.Utilities;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import timber.log.Timber;
 
 public class RoomsActivity extends AppCompatActivity {
 

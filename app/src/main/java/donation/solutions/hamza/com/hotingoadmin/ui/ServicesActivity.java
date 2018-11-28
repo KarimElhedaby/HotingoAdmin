@@ -19,7 +19,6 @@ import donation.solutions.hamza.com.hotingoadmin.utils.Utilities;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import timber.log.Timber;
 
 public class ServicesActivity extends AppCompatActivity {
 
@@ -66,7 +65,6 @@ public class ServicesActivity extends AppCompatActivity {
 
                         @Override
                         public void editService(ServicesResponce service) {
-                            Timber.d(service.getId());
                             android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
                             UpdateService updateService = new UpdateService();
 

@@ -22,7 +22,6 @@ import donation.solutions.hamza.com.hotingoadmin.utils.Utilities;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import timber.log.Timber;
 
 @SuppressLint("ValidFragment")
 public class UpdateRoom extends DialogFragment {
@@ -93,7 +92,6 @@ public class UpdateRoom extends DialogFragment {
             @Override
             public void onFailure(Call<RoomModel> call, Throwable t) {
                 Toast.makeText(getContext(), "Some thing  Wronge try again..", Toast.LENGTH_SHORT).show();
-                Timber.d(t.getMessage());
                 Utilities.dismissLoadingDialog();
             }
         });
