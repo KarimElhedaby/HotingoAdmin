@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/servicesRV"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.ServicesActivity">
+    android:layout_height="wrap_content" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/servicesRV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+<android.support.design.widget.FloatingActionButton
+    android:id="@+id/addServiceFAB"
+    android:visibility="visible"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    android:layout_gravity="bottom|end"
+    android:layout_margin="36dp"
+    android:src="@android:drawable/ic_input_add"
+    android:tint="#fff" />
 
-</LinearLayout>
+</RelativeLayout>

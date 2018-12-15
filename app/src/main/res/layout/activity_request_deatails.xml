@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="Type  : "
+            android:text="Type   "
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="normal" />
@@ -46,7 +46,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:text="Food request  "
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimarytitle"
             android:textSize="14sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="Room  : "
+            android:text="Room  "
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="normal" />
@@ -73,7 +73,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:text="411  "
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimarytitle"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="Notes  : "
+            android:text="Notes   "
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="normal" />
@@ -101,7 +101,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:text="I need 3 dishes of food one rice , one fish and one vegtables .. thanks  "
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimarytitle"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -134,7 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="Customer name   : "
+            android:text="Customer name   "
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="normal" />
@@ -147,7 +147,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:text="Karim Elhedaby  "
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimarytitle"
             android:textSize="14sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -161,7 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="Phone num : "
+            android:text="Phone num   "
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="normal" />
@@ -174,7 +174,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:text="01064646308  "
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimarytitle"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -232,8 +232,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Status : "
-            android:textColor="@color/black"
+            android:text="Status   "
+            android:textColor="@color/colorPrimary"
             android:textSize="23sp" />
 
         <TextView

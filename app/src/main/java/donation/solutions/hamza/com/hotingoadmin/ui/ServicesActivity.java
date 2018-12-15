@@ -1,6 +1,8 @@
 package donation.solutions.hamza.com.hotingoadmin.ui;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import donation.solutions.hamza.com.hotingoadmin.R;
 import donation.solutions.hamza.com.hotingoadmin.adapter.ServicesAdapter;
 import donation.solutions.hamza.com.hotingoadmin.model.ServicesResponce;
@@ -27,6 +30,9 @@ public class ServicesActivity extends AppCompatActivity {
 
     private ServicesAdapter servicesAdapter;
     ArrayList<ServicesResponce> services;
+
+    @BindView(R.id.addServiceFAB)
+    FloatingActionButton addServiceFAB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,5 +122,12 @@ public class ServicesActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @OnClick(R.id.addServiceFAB)
+    public void onViewClicked() {
+        FragmentManager fm = getSupportFragmentManager();
+        AddServiceDialog serviceDialog = new AddServiceDialog();
+        serviceDialog.show(fm, "Show fragment");
     }
 }

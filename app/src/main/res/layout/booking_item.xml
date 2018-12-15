@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:textDirection="ltr"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
@@ -26,8 +27,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
-                    android:text="Customer name : "
-                    android:textColor="@color/colorAccent"
+                    android:text="Customer name  "
+                    android:textColor="@color/colorPrimary"
                     android:textSize="18sp"
                     android:textStyle="normal" />
 
@@ -39,7 +40,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:text="Karim ELhedaby  "
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimarytitle"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -53,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
-                    android:text="Room number : "
+                    android:text="Room number  "
 
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp"
@@ -67,7 +68,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:text="411  "
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimarytitle"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 

@@ -26,7 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
-                    android:text="Request  : "
+                    android:text="Request   "
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp"
                     android:textStyle="normal" />
@@ -39,7 +39,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:text="need some food  "
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimarytitle"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -53,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
-                    android:text="Customer :"
+                    android:text="Customer  "
                     android:textColor="@color/colorAccent"
                     android:textSize="18sp"
                     android:textStyle="normal" />
@@ -66,7 +66,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:text="Karim Elhedaby  "
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorPrimarytitle"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
