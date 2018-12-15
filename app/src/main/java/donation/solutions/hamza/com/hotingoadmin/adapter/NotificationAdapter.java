@@ -59,7 +59,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             }
         });
         holder.notificationText.setText(notifications.get(position).getText().toString());
-        holder.notificationDate.setText(notifications.get(position).getCreationDate().toString());
+        holder.notificationDate.setText(notifications.get(position).getCreationDate().subSequence(0,10));
 
     }
 
