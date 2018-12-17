@@ -4,6 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="350dp"
         android:layout_height="match_parent"
@@ -42,8 +45,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/donateprojectRV"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginBottom="100dp"
+            android:layout_height="100dp"
             android:visibility="gone" />
 
 
@@ -99,5 +101,6 @@
 
     </LinearLayout>
 
+    </ScrollView>
 
 </LinearLayout>
